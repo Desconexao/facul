@@ -37,7 +37,6 @@ int main() {
   Carta jogador2[5];
   int cartaRandom1;
   int cartaRandom2;
-  
 
   srand(time(NULL));
   for (int i = 0; i < 5; i++) {
