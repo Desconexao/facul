@@ -100,7 +100,7 @@ void q3(){
 int validaTiro(int tiro, char charPos){
     while(tiro > 5 || tiro < 0){
         printf("Posicao %c invalida, digite novamente entre [0-5] para %c: ", charPos, charPos);
-        scanf("%d", tiro);
+        scanf("%d", &tiro);
     }
     return tiro;
 }
@@ -111,15 +111,14 @@ void q4(){
     int disparoPosX, disparoPosY;
     int pontuacao = 0;
     for(int i = 0; i < 6; i++){
-        printf("Digite a posicão X do seu [%d] tiro:  ", i + 1);
+        printf("Digite a posicao X do seu [%d] tiro:  ", i + 1);
         scanf("%d", &disparoPosX);
         if(disparoPosX > 5 || disparoPosX < 0)
             disparoPosX = validaTiro(disparoPosX, 'X');
-        printf("Digite a posicão Y do seu [%d] tiro:  ", i + 1);
+        printf("Digite a posicao Y do seu [%d] tiro:  ", i + 1);
         scanf("%d", &disparoPosY);
         if(disparoPosY > 5 || disparoPosY < 0)
             disparoPosY = validaTiro(disparoPosY, 'Y');
-        printf("%d\n", matrizTabuleiro[disparoPosX][disparoPosY]);
         pontuacao += matrizTabuleiro[disparoPosX][disparoPosY]; 
     }
     printf("Voce obteve %d pontos!", pontuacao);
