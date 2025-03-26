@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 int buscaPalavra(char frase[], char palavra[]){
     int tamanhoFrase = strlen(frase) - 1;
@@ -43,28 +44,34 @@ typedef struct {
     Caracteristica caracIndividuais[500];
 } Individuos;
 
-Individuos pegaDados(){
+Individuos pegaDados(int tamanho){
     Caracteristica caracteristica;
     Individuos individuos;
 
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < tamanho; i++){
         printf("Digite a altura da pessoa: %d: ", i + 1);
         scanf("%f", &caracteristica.altura);
         printf("Digite o peso da pessoa %d: ", i + 1);
         scanf("%f", &caracteristica.peso);
-        caracteristica.imc = caracteristica.peso/(caracteristica.altura * 2);
+        caracteristica.imc = caracteristica.peso / pow(caracteristica.altura, 2);
         individuos.caracIndividuais[i] = caracteristica;
     }
     return individuos;
 }
 
 void q2(){
-    Individuos individuos = pegaDados();
-    for(int i = 0; i < 5; i++ ){
+    int tamanho = 5;
+    int maiorTrinta = 0;
+    Individuos individuos = pegaDados(tamanho);
+
+    for(int i = 0; i < tamanho; i++ ){
         printf("Altura da pessoa %d: %.2f\n", i + 1 , individuos.caracIndividuais[i].altura);
         printf("Peso da pessoa %d: %.2f\n", i + 1 , individuos.caracIndividuais[i].peso);
         printf("IMC da pessoa %d: %.2f\n", i + 1 , individuos.caracIndividuais[i].imc);
+        if(individuos.caracIndividuais[i].imc > 30)
+            maiorTrinta++;
     }
+    printf("%d individuos com IMC maior que 30", maiorTrinta);
 }
 
 int validaEntrada(int entrada){
@@ -75,8 +82,9 @@ int validaEntrada(int entrada){
     return entrada;  
 }
 
-void leValores(int valores[], int tamanho){
+int leValores(int valores[], int tamanho){
     int entrada;
+    int somaValores = 0;
 
     for(int i = 0; i < tamanho; i++){
         printf("Digite um inteiro maior que 0: ");
@@ -84,17 +92,24 @@ void leValores(int valores[], int tamanho){
         if(entrada < 0)
             entrada = validaEntrada(entrada);
         valores[i] = entrada;
+        somaValores += entrada;
     }
+    return somaValores;
 }
 
 void q3(){
     int tamanho = 5;
     int valores[tamanho];
-    leValores(valores, tamanho);
+    int somaValores = leValores(valores, tamanho);
+    int acimaMedia = 0;
 
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < tamanho; i++){
         printf("Valor na posicao %d: %d\n", i, valores[i]);
+        if(valores[i] > (somaValores / tamanho))
+            acimaMedia++;
     }
+
+    printf("%d valores estao acima da media", acimaMedia);
 }
 
 int validaTiro(int tiro, char charPos){
@@ -126,7 +141,7 @@ void q4(){
 
 int main(){
     // q1();
-    // q2();
+    q2();
     // q3();
-    q4();
+    // q4();
 }
