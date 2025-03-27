@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
 #define tam 20 //tamanho da lista de alunos
 
@@ -30,28 +30,28 @@ int main(){
 	  printf ("\n1.Incluir\n2.Listas Todos\n3.Pesquisar por nome\n4.Pesquisar maior media\n0. Sair\nQual operação deseja realizar? ");
 	  scanf("%d",&op);
 	  switch (op){
-			case 1:
-			  if (alunos.numeroAlunos < tam )
-			    alunos.alunos[alunos.numeroAlunos++] = leAluno(); 
-			  else
-			    printf("Vetor cheio\n");  
-			  break;  
-			case 2:
-			  if (alunos.numeroAlunos > 0 )
-			    for(int i=0; i<alunos.numeroAlunos;i++){
-	               printf("Cod: %d\tNome: %s\tMedia:%.2f\n", alunos.alunos[i].codigo, alunos.alunos[i].nome, (alunos.alunos[i].nota1+alunos.alunos[i].nota2) / 2);
-                } 
-			  else
-			    printf("Nenhum registro alunos ser mostrado\n");
-			  break;
-			case 3:
-				buscaAluno(alunos);
-			  break;
-			case 4:
-				buscaMaiorMedia(alunos);
-				break;
-			default:
-			  printf("Fim...");
+		case 1:
+			if (alunos.numeroAlunos < tam )
+				alunos.alunos[alunos.numeroAlunos++] = leAluno(); 
+			else
+				printf("Vetor cheio\n");  
+			break;  
+		case 2:
+			if (alunos.numeroAlunos > 0 )
+				for(int i=0; i<alunos.numeroAlunos;i++){
+					printf("Cod: %d\tNome: %s\tMedia:%.2f\n", alunos.alunos[i].codigo, alunos.alunos[i].nome, (alunos.alunos[i].nota1+alunos.alunos[i].nota2) / 2);
+				} 
+			else
+				printf("Nenhum registro alunos ser mostrado\n");
+			break;
+		case 3:
+			buscaAluno(alunos);
+			break;
+		case 4:
+			buscaMaiorMedia(alunos);
+			break;
+		default:
+			printf("Fim...");
 	  }
 	}   
 }
