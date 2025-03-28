@@ -8,9 +8,9 @@ int buscaPalavra(char frase[], char palavra[]){
     int tamanhoPalavra = strlen(palavra) - 1;
     int  j = 0;
     for(int i = 0; i <= tamanhoFrase - tamanhoPalavra; i++){
-        for(j; j < tamanhoPalavra; j++){
-            if(frase[i+j] != palavra[j])
-                break;
+        for(j = 0; j < tamanhoPalavra; j++){
+            if(frase[i+j] != palavra[j]) break;
+            printf("%c", palavra[j]);
         }
         if(j == tamanhoPalavra)
             return 1;
@@ -140,7 +140,7 @@ void q4(){
 }
 
 int main(){
-    // q1();
+    q1();
     // q2();
     // q3();
     // q4();
