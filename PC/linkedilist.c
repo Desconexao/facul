@@ -9,7 +9,7 @@ typedef struct No {
 No *criaNo() {
     No *comeco = (No *)malloc(sizeof(No));
     if (comeco == NULL) {
-        fprintf(stderr, "Erro: falha na alocação de memória\n");
+        printf("Erro: falha na alocação de memória\n");
         exit(1);
     }
     comeco->conteudo = 0;
@@ -20,7 +20,7 @@ No *criaNo() {
 void insereNo(int conteudo, No *no) {
     No *novoNo = (No *)malloc(sizeof(No));
     if (novoNo == NULL) {
-        fprintf(stderr, "Erro: falha na alocação de memória\n");
+        printf("Erro: falha na alocação de memória\n");
         exit(1);
     }
     novoNo->conteudo = conteudo;
