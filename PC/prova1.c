@@ -24,6 +24,6 @@ int main() {
 }
 
 
-void calcula(int horas_de_frio[5][5], int horas_de_frio_mes_media[5], float *perc_horas_de_frio_mes[5], float *perc_total_horas_de_frio){
+void calcula(int horas_de_frio[5][5], int horas_de_frio_mes_media[5], float perc_horas_de_frio_mes[5], float *perc_total_horas_de_frio){
 
 }
