@@ -20,8 +20,8 @@ void ex4() {
   printf("%c%s ", toupper(s1[0]), &s1[1]);
   printf("%s ", strcpy(s3, s2));
   printf("%s ", strcat(strcat(strcpy(s3, s1), " and "), s2));
-  printf("%lu ", strlen(s1) + strlen(s2));
-  printf("%lu ", strlen(s3));
+  printf("%llu ", strlen(s1) + strlen(s2));
+  printf("%llu ", strlen(s3));
 }
 
 int main() {
