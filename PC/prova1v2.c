@@ -13,22 +13,37 @@ int main() {
     int a_min[10], a_max[10];
     int i, qtde = 0, valor1, valor2;
     for (i = 0; i < 10; i++)
-        scanf(”% s % d % d % d % d % d % d”, variedade[i], &t_min[i], &t_max[i],
+        scanf("%s %d %d %d %d %d %d", variedade[i], &t_min[i], &t_max[i],
               &p_min[i], &p_max[i], &a_min[i], &a_max[i]);
-    printf(”Informe a precipitação anual da sua região :\n”);
-    scanf(”% d”, &valor1);
-    printf(”Informe a altitude da sua região :\n”);
-    scanf(”% d”, &valor2);
+    printf("Informe a precipitação anual da sua região :\n");
+    scanf("%d", &valor1);
+    printf("Informe a altitude da sua região :\n");
+    scanf("%d", &valor2);
     prova(variedade, t_min, t_max, p_min, p_max, a_min, a_max, valor1, valor2,
           resposta, &qtde);
-    printf(”Variedade(s) indicada(s) :\n”);
+    printf("Variedade(s) indicada(s) :\n");
     for (i = 0; i < qtde; i++)
-        printf(”% s\n”, resposta[i]);
+        printf("%s\n", resposta[i]);
     return 0;
 }
 
 void prova(char variedades[10][30], int temp_min[10], int temp_max[10],
            int prec_min[10], int prec_max[10], int alti_min[10],
            int alti_max[10], int valor_pergunta1, int valor_pergunta2,
-           char respostas[10][30], int *quantidade) {}
-// test
+           char respostas[10][30], int *quantidade) {
+    if ((valor_pergunta1 < 1000 || valor_pergunta1 > 3000) ||
+        (valor_pergunta2 < 0 || valor_pergunta2 > 2100)) {
+        printf("Algum valor está fora da faixa. Precipitação: %d, esperado "
+               "entre [1000-3000]. Altitude: %d, esperado entre [0-2100].\n",
+               valor_pergunta1, valor_pergunta2);
+        return;
+    }
+    for (int i = 0; i < 10; i++) {
+        if ((valor_pergunta1 >= prec_min[i] &&
+             valor_pergunta1 <= prec_max[i]) &&
+            (valor_pergunta2 >= alti_min[i] && valor_pergunta2 <= alti_max[i])){
+            strcpy(respostas[*quantidade], variedades[i]);
+            (*quantidade)++;
+            }
+    }
+}
