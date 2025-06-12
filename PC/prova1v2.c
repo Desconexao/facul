@@ -31,3 +31,4 @@ void prova(char variedades[10][30], int temp_min[10], int temp_max[10],
            int prec_min[10], int prec_max[10], int alti_min[10],
            int alti_max[10], int valor_pergunta1, int valor_pergunta2,
            char respostas[10][30], int *quantidade) {}
+// test
