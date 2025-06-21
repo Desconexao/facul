@@ -30,7 +30,6 @@ void numeros_amigos(int n, int amigos[TAM][2], int *q) {
             if (firstSum % j == 0)
                 secondSum += j;
         if (i == secondSum && i != firstSum) {
-            printf("i = %d,  firstSum = %d ", i, firstSum);
             amigos[*q][0] = i;
             amigos[*q][1] = firstSum;
             (*q)++;
