@@ -29,7 +29,7 @@ void numeros_amigos(int n, int amigos[TAM][2], int *q) {
         for (int j = 1; j < firstSum; j++)
             if (firstSum % j == 0)
                 secondSum += j;
-        if (i == secondSum && i != firstSum) {
+        if (i == secondSum && i < firstSum) {
             amigos[*q][0] = i;
             amigos[*q][1] = firstSum;
             (*q)++;
