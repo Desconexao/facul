@@ -68,6 +68,6 @@ void leitura(int *qtde, pares vet[100]) {
 }
 
 int main() {
-    q5();
+    q3();
     return 0;
 }
