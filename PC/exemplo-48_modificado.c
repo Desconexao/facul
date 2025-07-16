@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <threads.h>
 
 #define MAX 100
 
@@ -20,6 +21,8 @@ int menu(void);
 int livre(void);
 int buscaNome(char nome[MAX]);
 void imprimePessoa(void);
+void gravarEnderecos(void);
+void recuperarEnderecos();
 void ler_string(char palavra[MAX], int tamanho);
 
 int main() {
@@ -42,6 +45,12 @@ int main() {
             imprimePessoa();
             break;
         case 5:
+            gravarEnderecos();
+            break;
+        case 6:
+            recuperarEnderecos();
+            break;
+        case 7:
             exit(0);
             break;
         }
@@ -63,6 +72,8 @@ int menu(void) {
         printf("\t 2. Excluir um nome\n");
         printf("\t 3. Listar o arquivo\n");
         printf("\t 4. Listar uma pessoa\n");
+        printf("\t 5. Gravar Endereços\n");
+        printf("\t 4. Recuperar Endereços\n");
         printf("\t 5. Sair\n");
         printf("-- Digite sua escolha: ");
         scanf("%d", &c);
