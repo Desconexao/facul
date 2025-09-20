@@ -29,6 +29,7 @@ int main() {
             break;
         }
     } while (opc != 4);
+    free(lista);
 }
 
 char *addNome(char *lista, char *nome) {
@@ -43,7 +44,8 @@ char *addNome(char *lista, char *nome) {
     } else {
         // se já tem algo na string, realoca mais memoria
         int novoTamanho = strlen(lista) + strlen(nome) + 1;
-        lista = realloc(lista, novoTamanho);
+        lista = realloc(lista,
+                        novoTamanho); // realloc pode falhar caso falte memoria
         strcat(lista, nome);
     }
     return lista;
@@ -80,6 +82,7 @@ char *removerNome(char *lista, char *nome) {
             }
 
             lenLista = strlen(lista);
+            // realloc pode falhar caso falte memoria
             lista = realloc(lista, lenLista + 1);
         }
     }
