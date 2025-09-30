@@ -3,18 +3,17 @@ package pratica1.ex1;
 public class Main {
     public static void main(String[] args) {
         Conta contaMaria, contaGabriel;
-        contaMaria = new Conta();
-        contaGabriel = new Conta();
+        contaMaria = new Conta("Maria", 5, 500);
+        contaGabriel = new Conta("Gabriel", 50, 1000);
 
-        contaGabriel.saldo = 5.0;
-        contaMaria.dono = "Maria";
-        contaMaria.saldo = 50.0;
-        contaMaria.limite = 1000.0;
-        System.out.println("Dono: " + contaMaria.dono);
-        System.out.println("Saldo: " + contaMaria.saldo);
+        contaMaria.imprimeDados();
+        contaGabriel.imprimeDados();
+
+        System.out.println("Dono: " + contaMaria.getDono());
+        System.out.println("Saldo: " + contaMaria.getSaldo());
         contaMaria.saca(500.0);
         contaMaria.transferePara(contaGabriel, 40);
-        System.out.println("Saldo Maria: " + contaMaria.saldo);
-        System.out.println("Saldo Gabriel: " + contaGabriel.saldo);
+        System.out.println("Saldo Maria: " + contaMaria.getSaldo());
+        System.out.println("Saldo Gabriel: " + contaGabriel.getSaldo());
     }
 }
